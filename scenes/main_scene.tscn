@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dpy10v048srh1"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
