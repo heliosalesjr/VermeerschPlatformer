@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 200.0
 var gravity = 20
 var jump = 400
+var pressed = 2
 
 func _physics_process(delta):
 	
@@ -30,9 +31,21 @@ func Move(delta):
 		velocity.x = 0.0
 		$AnimationPlayer.play("Idle")
 		
+	if Input.is_action_just_pressed("ui_jump"):
+		pressed -= 1
+		
 	if is_on_floor() && Input.is_action_just_pressed("ui_jump"):
 		Jump()
 	
+	if !is_on_floor() && Input.is_action_just_pressed("ui_jump") && pressed >= 1:
+		Jump()
+	
+	if pressed <= 1:
+		velocity.y = velocity.y
+	
+	if is_on_floor():
+		pressed = 2
+		
 	if !is_on_floor():
 		$AnimationPlayer.play("Jump")
 		
