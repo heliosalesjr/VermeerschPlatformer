@@ -55,18 +55,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [14, 15, 16, 17]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sword/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, false, false, true, true]
-}
 
 [sub_resource type="Animation" id="Animation_oyath"]
 resource_name = "Dead"
@@ -96,18 +84,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sword/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_eg6nq"]
@@ -180,4 +156,5 @@ position = Vector2(25, 2.08165e-12)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword"]
 position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("RectangleShape2D_bplsd")
+disabled = true
 debug_color = Color(0.14902, 0.635294, 0.32549, 0.419608)
