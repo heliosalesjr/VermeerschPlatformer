@@ -12,7 +12,7 @@ func _ready():
 	$Sword/CollisionShape2D.disabled = true
 
 func _physics_process(delta):
-	Move(delta)
+#	Move(delta)
 	
 	match CurrentState:
 		PlayerStates.MOVE:
@@ -75,3 +75,6 @@ func Jump():
 		#$AnimationPlayer.play("Jump")
 func Sword():
 	$AnimationPlayer.play("Sword")
+
+func OnStateFinished():
+	CurrentState = PlayerStates.MOVE
