@@ -1,0 +1,118 @@
+[gd_scene load_steps=10 format=3 uid="uid://58fwiwipmrny"]
+
+[ext_resource type="Script" path="res://scenes/Crate.gd" id="1_etnku"]
+[ext_resource type="Texture2D" uid="uid://b8j6l2dx6pawc" path="res://assets/Sprites/Interactables/Crates.png" id="2_7i2b0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_642q2"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0c7cn"]
+size = Vector2(14, 14)
+
+[sub_resource type="Animation" id="Animation_sgwpy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_2i27n"]
+resource_name = "active"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_qsn3h"]
+resource_name = "destroyed"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 8, 9, 10, 11, 12, 12]
+}
+
+[sub_resource type="Animation" id="Animation_ofukq"]
+resource_name = "hurt"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [13, 14, 15, 16]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5xvhm"]
+_data = {
+"RESET": SubResource("Animation_sgwpy"),
+"active": SubResource("Animation_2i27n"),
+"destroyed": SubResource("Animation_qsn3h"),
+"hurt": SubResource("Animation_ofukq")
+}
+
+[node name="Crate" type="StaticBody2D"]
+light_mask = 16
+visibility_layer = 8
+collision_layer = 17
+collision_mask = 9
+script = ExtResource("1_etnku")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_642q2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("2_7i2b0")
+hframes = 4
+vframes = 5
+frame = 1
+
+[node name="hitbox" type="Area2D" parent="."]
+light_mask = 16
+visibility_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+visible = false
+light_mask = 17
+visibility_layer = 9
+shape = SubResource("RectangleShape2D_0c7cn")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+autoplay = "active"
+libraries = {
+"": SubResource("AnimationLibrary_5xvhm")
+}
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

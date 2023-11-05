@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpy10v048srh1"]
+[gd_scene load_steps=6 format=3 uid="uid://dpy10v048srh1"]
 
 [ext_resource type="PackedScene" uid="uid://d1ensb04nox58" path="res://scenes/player.tscn" id="1_b33pc"]
 [ext_resource type="Texture2D" uid="uid://bndbv2oia2guw" path="res://assets/Sprites/Ground/ground-tileset.png" id="2_0ax88"]
+[ext_resource type="PackedScene" uid="uid://58fwiwipmrny" path="res://scenes/crate.tscn" id="3_v1qht"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_onvw0"]
 texture = ExtResource("2_0ax88")
@@ -128,9 +129,26 @@ sources/0 = SubResource("TileSetAtlasSource_onvw0")
 anchor_mode = 0
 zoom = Vector2(3, 3)
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Player" parent="." instance=ExtResource("1_b33pc")]
+position = Vector2(63, -16)
+
+[node name="Ground" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_y13yb")
 format = 2
 layer_0/tile_data = PackedInt32Array(393216, 0, 0, 393217, 65536, 0, 393218, 131072, 0, 393219, 196608, 0, 458752, 0, 0, 458753, 65536, 0, 458754, 131072, 0, 458755, 196608, 0, 786438, 0, 0, 786439, 65536, 0, 786440, 131072, 0, 786441, 196608, 0, 786442, 0, 0, 786443, 65536, 0, 786444, 131072, 0, 786445, 196608, 0, 786446, 0, 0, 786447, 65536, 0, 786448, 131072, 0, 786449, 196608, 0, 655374, 65536, 0, 655375, 65536, 0, 655376, 65536, 0, 589840, 65536, 0, 589841, 65536, 0, 589842, 65536, 0, 524306, 65536, 0, 524307, 65536, 0, 524308, 65536, 0, 458772, 65536, 0, 458773, 65536, 0, 458774, 65536, 0, 458775, 65536, 0, 524292, 65536, 0, 589828, 65536, 0, 655364, 65536, 0, 655365, 65536, 0)
 
-[node name="Player" parent="." instance=ExtResource("1_b33pc")]
+[node name="Crate" parent="." instance=ExtResource("3_v1qht")]
+light_mask = 17
+position = Vector2(144, 180)
+
+[node name="Crate2" parent="." instance=ExtResource("3_v1qht")]
+light_mask = 17
+position = Vector2(211, 169)
+collision_layer = 1
+collision_mask = 1
+
+[node name="Crate3" parent="." instance=ExtResource("3_v1qht")]
+light_mask = 17
+position = Vector2(241, 150)
+collision_layer = 1
+collision_mask = 1

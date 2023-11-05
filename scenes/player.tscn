@@ -147,6 +147,7 @@ _data = {
 size = Vector2(20, 30)
 
 [node name="Player" type="CharacterBody2D"]
+light_mask = 8
 script = ExtResource("1_5nvjw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -165,6 +166,8 @@ libraries = {
 }
 
 [node name="Sword" type="Area2D" parent="."]
+light_mask = 8
+visibility_layer = 17
 position = Vector2(25, 2.08165e-12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword"]

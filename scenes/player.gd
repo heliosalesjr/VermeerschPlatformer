@@ -68,7 +68,7 @@ func Move(delta):
 
 	if Input.is_action_just_pressed("ui_sword"):
 		CurrentState = PlayerStates.SWORD
-
+		velocity.x = movement
 func Jump():
 #	if Input.is_action_just_pressed("ui_jump"):
 		velocity.y -= jump
