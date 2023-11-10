@@ -136,7 +136,7 @@ sources/0 = SubResource("TileSetAtlasSource_onvw0")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
-zoom = Vector2(6, 6)
+zoom = Vector2(3, 3)
 
 [node name="Player" parent="." instance=ExtResource("1_b33pc")]
 visibility_layer = 17
