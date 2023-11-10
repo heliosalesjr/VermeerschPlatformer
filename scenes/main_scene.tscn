@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dpy10v048srh1"]
+[gd_scene load_steps=16 format=3 uid="uid://dpy10v048srh1"]
 
 [ext_resource type="PackedScene" uid="uid://d1ensb04nox58" path="res://scenes/player.tscn" id="1_b33pc"]
 [ext_resource type="Texture2D" uid="uid://bndbv2oia2guw" path="res://assets/Sprites/Ground/ground-tileset.png" id="2_0ax88"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dh2vn5id5dedq" path="res://assets/Sprites/World 1/Trees.png" id="10_w3mbm"]
 [ext_resource type="Texture2D" uid="uid://db44e0rtekp7j" path="res://assets/Sprites/World 1/grass-ground.png" id="11_et6d8"]
 [ext_resource type="Texture2D" uid="uid://d3ytlbo3p80d4" path="res://assets/Sprites/World 1/Foreground.png" id="12_vt2u5"]
+[ext_resource type="PackedScene" uid="uid://cgklhlgke3gmq" path="res://scenes/enemy.tscn" id="13_1ag85"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_onvw0"]
 texture = ExtResource("2_0ax88")
@@ -205,3 +206,6 @@ centered = false
 z_index = 3
 texture = ExtResource("12_vt2u5")
 centered = false
+
+[node name="Enemy" parent="." instance=ExtResource("13_1ag85")]
+position = Vector2(281, 128)
